@@ -1,4 +1,4 @@
-package p01_classBox;
+package p02_classBoxDataValidation;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,11 +12,14 @@ public class Main {
         double width = Double.parseDouble(reader.readLine());
         double height = Double.parseDouble(reader.readLine());
 
-        Box box = new Box(length, width, height);
-
-        System.out.println(box.getSurfaceAreaAnswer());
-        System.out.println(box.getLateralSurfaceAreaAnswer());
-        System.out.println(box.getVolumeAnswer());
+        try {
+            Box box = new Box(length, width, height);
+            System.out.println(box.getSurfaceAreaAnswer());
+            System.out.println(box.getLateralSurfaceAreaAnswer());
+            System.out.println(box.getVolumeAnswer());
+        } catch (IllegalArgumentException iae) {
+            System.out.println(iae.getMessage());
+        }
 
         //main ends here
     }
