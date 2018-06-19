@@ -1,4 +1,4 @@
-package p01_singleInheritance;
+package p03_hierarchicalInheritance;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +6,8 @@ public class Main {
         dog.eat();
         dog.bark();
 
-        //main ends here
+        Cat cat = new Cat();
+        cat.eat();
+        cat.meow();
     }
 }
