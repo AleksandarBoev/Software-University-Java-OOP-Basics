@@ -3,10 +3,10 @@ package p06_stackOfStrings;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stack {
+public class StackOfStrings {
     private List<String> data;
 
-    public Stack() {
+    public StackOfStrings() {
         this.data = new ArrayList<>();
     }
 

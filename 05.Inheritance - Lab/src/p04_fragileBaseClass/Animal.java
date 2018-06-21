@@ -11,13 +11,11 @@ public class Animal {
         this.foodEaten = new ArrayList<>();
     }
 
-    public void eat(Food food) {
+    public final void eat(Food food) {
         this.foodEaten.add(food);
     }
 
     public void eatAll(Food[] food) {
-        for (Food food1 : food) {
-            this.eat(food1);
-        }
+        Collections.addAll(this.foodEaten, food);
     }
 }
