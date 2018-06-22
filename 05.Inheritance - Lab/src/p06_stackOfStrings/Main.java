@@ -2,14 +2,16 @@ package p06_stackOfStrings;
 
 public class Main {
     public static void main(String[] args) {
-        Stack stack = new Stack();
-        stack.push("One");
-        stack.push("Two");
-        stack.push("Three");
-        stack.push("Four");
+        StackOfStrings sos = new StackOfStrings();
+        sos.push("one");
+        sos.push("tow");
+        sos.push("three");
 
-        System.out.println(stack.pop());
-        System.out.println(stack.peek());
-        System.out.println(stack.isEmpty());
+        System.out.println(sos.isEmpty());
+        System.out.println(sos.peek());
+
+        System.out.println(sos.pop());
+        System.out.println(sos.pop());
+        System.out.println(sos.pop());
     }
 }
