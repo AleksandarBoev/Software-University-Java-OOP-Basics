@@ -94,7 +94,7 @@ public abstract class HealthManager {
         //Organism Troli: Activated cluster X05. Cells left: 1
         Cluster currentCluster = this.nameOrganism.get(organismName).getClusters().get(0);
         Cell currentCell = currentCluster.findFirstCell(); //think of a method for finding a cell
-        
+
         // think of a method of moving the cell one position to the right and a fight method which returns the winner Cell
         //TODO do stuff with this cluster
         //After a cluster is activated, it should wait for all the other clusters until it can be activated again.

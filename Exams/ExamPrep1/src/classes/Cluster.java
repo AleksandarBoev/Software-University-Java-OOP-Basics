@@ -12,6 +12,7 @@ public class Cluster {
     private int rows;
     private int cols;
     private List<Cell> cells;
+    private Cell activeCell; //TODO not sure if this is going to create problems
 
     public Cluster(String id, int rows, int cols) {
         this.id = id;
@@ -46,4 +47,10 @@ public class Cluster {
 
         return null; // TODO ne bi trqbvalo tova da napravi problem, no vse pak malko kuca logikata mai
     }
+
+    //TODO dali nqma da e po-dobre da si go napravq kato matrica, ili da si bluskam metodi...
+
+//    public Cell findNextCell() {
+//
+//    }
 }
