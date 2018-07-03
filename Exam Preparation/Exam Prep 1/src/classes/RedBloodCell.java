@@ -1,5 +1,7 @@
 package classes;
 
+import abstractClasses.BloodCell;
+
 public class RedBloodCell extends BloodCell {
     //⦁	velocity – a positive integer that describes the speed of the cell.
     //The velocity should be set trough the constructor.
@@ -8,6 +10,12 @@ public class RedBloodCell extends BloodCell {
     public RedBloodCell(String id, int health, int positionRow, int positionCol, int velocity) {
         super(id, health, positionRow, positionCol);
         this.velocity = velocity;
+        this.additionalAttribute = velocity;
+    }
+
+    @Override
+    public String getAdditionalProperty() {
+        return "Velocity";
     }
 
     @Override

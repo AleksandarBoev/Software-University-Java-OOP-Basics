@@ -1,7 +1,6 @@
 package classes;
 
-import java.util.ArrayList;
-import java.util.List;
+import abstractClasses.Cell;
 
 public class Cluster {
     private String id;
@@ -28,28 +27,23 @@ public class Cluster {
         return this.cols;
     }
 
-    @Override
-    public String toString() {
-        return null;
-    }
-
     public Cell[][] getCellsMatrix() {
         return this.cellsMatrix;
     }
 
     public Cell fight(Cell attackingCell, Cell defendingCell) {
         if ("BloodCell".equalsIgnoreCase(attackingCell.getCellType())) {
-            attackingCell.health += defendingCell.health;
+            attackingCell.setHealth(attackingCell.getHealth() + defendingCell.getHealth());
             return attackingCell;
         } else  { //Its a microbe
             while (true) {
-                defendingCell.health -= attackingCell.getEnergy();
-                if (defendingCell.health <= 0) {
+                defendingCell.setHealth(defendingCell.getHealth() - attackingCell.getEnergy());
+                if (defendingCell.getHealth() <= 0) {
                     return attackingCell;
                 }
 
-                attackingCell.health -= defendingCell.getEnergy(); //counter attack
-                if (attackingCell.health <= 0) {
+                attackingCell.setHealth(attackingCell.getHealth() - defendingCell.getEnergy()); //counter attack
+                if (attackingCell.getHealth() <= 0) {
                     return defendingCell;
                 }
             }
@@ -84,6 +78,27 @@ public class Cluster {
         }
 
         return null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("----Cluster %s", this.getId())).append(System.lineSeparator());
+        for (int row = 0; row < getRows(); row++) {
+            for (int col = 0; col < getCols(); col++) {
+                Cell currentCell = getCellsMatrix()[row][col];
+                if (currentCell != null) {
+                    sb.append(String.format("------Cell %s [%d,%d]", currentCell.getId(), currentCell.getPositionRow(), currentCell.getPositionCol()))
+                            .append(System.lineSeparator());
+                    sb.append(String.format("--------Health: %d | %s: %d | Energy: %d",
+                            currentCell.getHealth(),currentCell.getAdditionalProperty(), currentCell.getAdditionalAttribute(),currentCell.getEnergy()))
+                    .append("\n");
+                }
+            }
+        }
+
+        sb.delete(sb.length() - 1, sb.length());
+        return sb.toString();
     }
 
 }

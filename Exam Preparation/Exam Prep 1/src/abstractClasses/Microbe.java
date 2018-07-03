@@ -1,4 +1,4 @@
-package classes;
+package abstractClasses;
 
 public abstract class Microbe extends Cell {
     protected int virulence;
@@ -6,6 +6,11 @@ public abstract class Microbe extends Cell {
     public Microbe(String id, int health, int positionRow, int positionCol, int virulence) {
         super(id, health, positionRow, positionCol);
         this.virulence = virulence;
+        this.additionalAttribute = virulence;
+    }
+
+    public int getVirulence() {
+        return this.virulence;
     }
 
     @Override

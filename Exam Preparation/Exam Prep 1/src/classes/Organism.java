@@ -26,6 +26,34 @@ public class Organism {
 
     @Override
     public String toString() {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        //Organism - Troli
+        //--Clusters: 0
+        //--Cells: 0
+        sb.append("Organism - ").append(this.name).append(System.lineSeparator());
+        sb.append("--Clusters: ").append(this.clusters.size()).append(System.lineSeparator());
+        sb.append("--Cells: ").append(this.getCellsCount()).append(System.lineSeparator());
+
+        for (Cluster cluster : clusters) {
+            sb.append(cluster.toString()).append("\n");
+        }
+        sb.delete(sb.length() - 1, sb.length());
+
+        return sb.toString();
+    }
+
+    private int getCellsCount() {
+        int count = 0;
+        for (Cluster cluster : clusters) {
+            for (int row = 0; row < cluster.getRows(); row++) {
+                for (int col = 0; col < cluster.getCols(); col++) {
+                    if (cluster.getCellsMatrix()[row][col] != null) {
+                        count++;
+                    }
+                }
+            }
+        }
+
+        return count;
     }
 }

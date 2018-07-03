@@ -1,5 +1,6 @@
 package engine;
 
+import abstractClasses.Cell;
 import classes.*;
 
 import java.util.LinkedHashMap;
@@ -18,8 +19,9 @@ public class HealthManager {
 
     public String checkCondition(String organismName) {
         //⦁	RETURNS detailed information about the condition of the organism with the given name
-        return this.nameOrganism.toString();
+        return this.nameOrganism.get(organismName).toString();
     }
+
     public String createOrganism(String name) {
         if (this.nameOrganism.containsKey(name)) {
             return String.format("Organism %s already exists", name);
@@ -31,6 +33,10 @@ public class HealthManager {
 
 
     public String addCluster(String organismName, String id, int rows, int cols) {
+        if (!this.nameOrganism.containsKey(organismName)) {
+            return "";
+        }
+
         long hasThisClusterId = this.nameOrganism.get(organismName).getClusters().stream()
                 .map(x -> x.getId())
                 .filter(x -> x.equals(id))
@@ -47,6 +53,10 @@ public class HealthManager {
 
     public String addCell(String organismName, String clusterId, String cellType, String cellId
             , int health, int positionRow, int positionCol, int additionalProperty) {
+
+        if (!this.nameOrganism.containsKey(organismName)) {
+            return "";
+        }
 
         Cell cell = null;
         switch (cellType) {
@@ -72,8 +82,9 @@ public class HealthManager {
         }
 
         for (Cluster cluster : this.nameOrganism.get(organismName).getClusters()) { // dobavqne na kletkata v PRAVILNIQ kluster
-            if (cluster.getId().equals(clusterId)) {
+            if (cluster.getId().equals(clusterId)) { //TODO what if ther is no such cluster with that id?
                 cluster.addCell(cell);
+                break;
             }
         }
 
@@ -115,7 +126,7 @@ public class HealthManager {
         this.nameOrganism.get(organismName).getClusters().remove(0);
         this.nameOrganism.get(organismName).getClusters().add(currentCluster);
 
-        return null; //Organism Troli: Activated cluster X05. Cells left: 1
+        return String.format("Organism %s: Activated cluster %s. Cells left: %d", organismName, currentCluster.getId(), 1);
     }
 
 }
