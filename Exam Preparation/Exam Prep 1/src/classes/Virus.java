@@ -9,4 +9,9 @@ public class Virus extends Microbe {
     public int getEnergy() {
         return this.health + this.virulence;
     }
+
+    @Override
+    public String getSpecificCellType() {
+        return "Virus";
+    }
 }

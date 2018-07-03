@@ -21,8 +21,24 @@ public abstract class Cell {
         return this.positionRow;
     }
 
+    public void setPositionRow(int positionRow) {
+        this.positionRow = positionRow;
+    }
+
     public int getPositionCol() {
         return this.positionCol;
+    }
+
+    public void setPositionCol(int positionCol) {
+        this.positionCol = positionCol;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public int getHealth() {
+        return this.health;
     }
 
     @Override
@@ -31,4 +47,8 @@ public abstract class Cell {
     }
 
     public abstract int getEnergy();
+
+    public abstract String getCellType();
+
+    public abstract String getSpecificCellType();
 }

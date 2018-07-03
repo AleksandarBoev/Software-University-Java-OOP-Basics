@@ -8,6 +8,11 @@ public abstract class Microbe extends Cell {
         this.virulence = virulence;
     }
 
+    @Override
+    public String getCellType() {
+        return "Microbe";
+    }
+
     //When a Microbe meets another Microbe or a Blood cell, it attacks. When the cell attacks, the
     // target takes damage, equal to the energy of the attacking cell. Each cell has energy and it depends
     // on the other stats of the cell.

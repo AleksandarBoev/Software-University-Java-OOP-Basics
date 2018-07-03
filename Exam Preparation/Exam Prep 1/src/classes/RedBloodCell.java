@@ -14,4 +14,9 @@ public class RedBloodCell extends BloodCell {
     public int getEnergy() {
         return this.health + this.velocity;
     }
+
+    @Override
+    public String getSpecificCellType() {
+        return "RedBloodCell";
+    }
 }

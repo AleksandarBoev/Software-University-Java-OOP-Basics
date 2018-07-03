@@ -15,6 +15,11 @@ public class WhiteBloodCell extends BloodCell {
         return (this.health + this.size) * 2;
     }
 
+    @Override
+    public String getSpecificCellType() {
+        return "WhiteBloodCell";
+    }
+
     //energy = (health + size) * 2.
 
 }

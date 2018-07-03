@@ -13,6 +13,7 @@ public class Main {
         Map<String, Organism> nameOrganism = new LinkedHashMap<>();
         //organism has a list of clusters --> different battlefields?
 
+
         reader.close();
     }
 }

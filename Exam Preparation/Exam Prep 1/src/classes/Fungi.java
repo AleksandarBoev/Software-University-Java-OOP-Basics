@@ -9,4 +9,9 @@ public class Fungi extends Microbe {
     public int getEnergy() {
         return (this.health + this.virulence) / 4;
     }
+
+    @Override
+    public String getSpecificCellType() {
+        return "Fungi";
+    }
 }
