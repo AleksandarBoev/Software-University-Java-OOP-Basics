@@ -13,17 +13,17 @@ public abstract class Car {
         this.brand = brand;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
-        this.horsepower = horsepower;
+        this.setHorsepower(horsepower);
         this.acceleration = acceleration;
-        this.suspension = suspension;
+        this.setSuspension(suspension);
         this.durability = durability;
     }
 
-    private String getBrand() {
+    public String getBrand() {
         return this.brand;
     }
 
-    private String getModel() {
+    public String getModel() {
         return this.model;
     }
 
@@ -31,7 +31,7 @@ public abstract class Car {
         return this.yearOfProduction;
     }
 
-    protected int getHorsepower() {
+    public int getHorsepower() {
         return this.horsepower;
     }
 
@@ -39,11 +39,11 @@ public abstract class Car {
         this.horsepower = horsepower;
     }
 
-    private int getAcceleration() {
+    public int getAcceleration() {
         return this.acceleration;
     }
 
-    protected int getSuspension() {
+    public int getSuspension() {
         return this.suspension;
     }
 
@@ -51,12 +51,11 @@ public abstract class Car {
         this.suspension = suspension;
     }
 
-    private int getDurability() {
+    public int getDurability() {
         return this.durability;
     }
 
     public abstract void tuneCar(int tuneIndex, String tuneAddOn);
-
 
     public String toString() {
         //“{brand} {model} {yearOfProduction}

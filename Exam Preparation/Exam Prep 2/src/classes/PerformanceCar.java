@@ -20,7 +20,7 @@ public class PerformanceCar extends Car {
 //Note: Decrease means DECREASE… 100 decreased by 25% = 100 – (100 * 25) / 100 = 100 – 25 = 75.
     @Override
     protected void setHorsepower(int horsePower) {
-        int result = this.getHorsepower() + (this.getHorsepower() * 50) / 100;
+        int result = horsePower + (horsePower * 50) / 100;
         super.setHorsepower(result);
     }
 
@@ -38,8 +38,8 @@ public class PerformanceCar extends Car {
         int additionalHorsePower = tuneIndex;
         int additionalSuspension = tuneIndex / 2;
 
-        this.setHorsepower(this.getHorsepower() + additionalHorsePower);
-        this.setSuspension(this.getSuspension() + additionalSuspension);
+        super.setHorsepower(this.getHorsepower() + additionalHorsePower);
+        super.setSuspension(this.getSuspension() + additionalSuspension);
         this.getAddOns().add(tuneAddOn);
     }
 
