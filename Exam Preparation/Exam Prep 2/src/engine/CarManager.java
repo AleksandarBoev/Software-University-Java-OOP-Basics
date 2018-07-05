@@ -92,7 +92,7 @@ public class CarManager {
         // and the race becomes CLOSED (you CANNOT add any more participants in it, and you CANNOT start it again).
         Race currentRace = this.getIdRace().get(id);
         if (currentRace.getParticipants().isEmpty()) {
-            return null;
+            return "Cannot start the race with zero participants.";
         }
 
         currentRace.sortParticipants();
@@ -114,6 +114,7 @@ public class CarManager {
         }
 
         sb.delete(sb.length() - 1, sb.length()); //delete last new line
+        this.getIdRace().remove(id); // TODO not sure if it has to be removed
 
         return sb.toString();
     }

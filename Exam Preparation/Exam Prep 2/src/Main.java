@@ -1,24 +1,13 @@
-import abstractClasses.Car;
-import abstractClasses.Race;
-import classes.CasualRace;
-import classes.PerformanceCar;
-import classes.ShowCar;
 import engine.CarManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         CarManager carManager = new CarManager();
-
 
         String input;
         while(!"Cops Are Here".equals(input = reader.readLine())) {
