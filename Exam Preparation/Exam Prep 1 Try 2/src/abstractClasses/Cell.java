@@ -13,8 +13,37 @@ public abstract class Cell {
         this.positionCol = positionCol;
     }
 
+    protected String getId() {
+        return this.id;
+    }
+
+    protected int getHealth() {
+        return this.health;
+    }
+
+    protected void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getPositionRow() {
+        return this.positionRow;
+    }
+
+    public int getPositionCol() {
+        return this.positionCol;
+    }
+
+    public void updatePosition(int newRowPosition, int newColPosition) {
+        this.positionRow = newRowPosition;
+        this.positionCol = newColPosition;
+    }
+
     @Override
     public String toString() {
-        return null;
+        return String.format("------Cell %s [%d,%d]%n", this.getId(), this.getPositionRow(), this.getPositionCol());
     }
+
+    protected abstract int getEnergy();
+
+    public abstract Cell fight(Cell attackingCell, Cell defendingCell);
 }
