@@ -7,7 +7,7 @@ public abstract class Colonist {
     private int age;
 
     public Colonist(String id, String familyId, int talent, int age) {
-        this.id = id;
+        this.id = id; //in the zero tests the id looks like a name
         this.familyId = familyId;
         this.talent = talent;
         this.age = age;
@@ -29,11 +29,24 @@ public abstract class Colonist {
         return this.age;
     }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public abstract int getClassBonus();
 
     public abstract int getAgeBonus();
 
     public int getPotential() { // TODO possible problem: judge might want this to be an abstract class:
-        return getClassBonus() + getAgeBonus();
+        return this.getTalent() + getClassBonus() + getAgeBonus();
+    }
+
+    public void grow(int years) {
+        this.setAge(this.getAge() + years);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("-%s: %d", this.getId(), this.getPotential());
     }
 }
